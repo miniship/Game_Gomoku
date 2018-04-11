@@ -3,7 +3,7 @@ package logic;
 import javax.swing.JOptionPane;
 
 import main.Main;
-
+import movesmaker.MoveMakerHelper;
 import gui.Board;
 
 public class ComputerPlayer {
@@ -37,10 +37,11 @@ public class ComputerPlayer {
 		int[] placeToPlay = null;
 
 		for (int[][] move : Main.moves) {
-			for (int i = 0; i < boardSize - 5; i++) {
-				for (int j = 0; j < boardSize - 5; j++) {
+			for (int i = 0; i <= boardSize - 5; i++) {
+				for (int j = 0; j <= boardSize - 5; j++) {
 					int[][] positionFromBoard = getPositionFromBoard(i, j);
 					if ((placeToPlay = compare(i, j, move, positionFromBoard)) != null) {
+						MoveMakerHelper.displayMove(move);
 						return placeToPlay;
 					}
 				}
@@ -63,6 +64,7 @@ public class ComputerPlayer {
 					placeToPlay[1] = col + j;
 					continue;
 				}
+				
 				if (move[i][j] != positionFromBoard[i][j]) {
 					return null;
 				}

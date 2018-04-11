@@ -10,14 +10,13 @@ public class MoveWithDoubleRowMaker {
 	 */
 	public List<int[][]> makeMoves(List<int[]> firstList, List<int[]> secondList) {
 		List<int[][]> moves = new LinkedList<int[][]>();
-		MoveMakerHelper helper = new MoveMakerHelper();
 		for (int i = 0; i < 25; i++) {
 			int row = i / 5;
 			int col = i % 5;
 
 			// in order to combine 2 rows, they must have the same place to play next
-			List<int[]> tempFirstList = helper.filter(firstList, col);
-			List<int[]> tempSecondList = helper.filter(secondList, row);
+			List<int[]> tempFirstList = MoveMakerHelper.filter(firstList, col);
+			List<int[]> tempSecondList = MoveMakerHelper.filter(secondList, row);
 
 			// place to play is in the middle
 			if (row == 2 && col == 2) {
@@ -40,7 +39,7 @@ public class MoveWithDoubleRowMaker {
 				// moves with 1 column and 1 forward cross
 				// since row and col are different, we have to filter the firstList by row to
 				// make moves
-				moves.addAll(makeMoves(helper.filter(firstList, row), tempSecondList, row, col, 2, 4));
+				moves.addAll(makeMoves(MoveMakerHelper.filter(firstList, row), tempSecondList, row, col, 2, 4));
 			}
 			// moves with 1 row and 1 column
 			moves.addAll(makeMoves(tempFirstList, tempSecondList, row, col, 1, 2));
@@ -60,13 +59,12 @@ public class MoveWithDoubleRowMaker {
 	 */
 	public List<int[][]> makeMoves(List<int[]> firstList, List<int[]> secondList, int rowToPlay, int colToPlay, int typeOne,
 			int typeTwo) {
-		MoveMakerHelper helper = new MoveMakerHelper();
 		List<int[][]> moves = new LinkedList<int[][]>();
 		for (int[] rowOne : firstList) {
 			for (int[] rowTwo : secondList) {
-				int[][] move = helper.prepareMove();
-				helper.fillARowIntoAMove(move, rowOne, rowToPlay, colToPlay, typeOne);
-				helper.fillARowIntoAMove(move, rowTwo, rowToPlay, colToPlay, typeTwo);
+				int[][] move = MoveMakerHelper.prepareMove();
+				MoveMakerHelper.fillARowIntoAMove(move, rowOne, rowToPlay, colToPlay, typeOne);
+				MoveMakerHelper.fillARowIntoAMove(move, rowTwo, rowToPlay, colToPlay, typeTwo);
 				moves.add(move);
 			}
 		}

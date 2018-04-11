@@ -69,6 +69,11 @@ public class Board extends JFrame {
 			}
 		}
 		
+		Main.shuffleMoves();
 		displayFirstMove();
 	}
+	
+	/**
+	 * suffle dfe
+	 */
 }

@@ -13,13 +13,13 @@ public class TwoInARowMaker {
 		result.add(new int[] { 0, 1, 3, 1, 0 });
 		result.add(new int[] { 0, 1, 1, 3, 0 });
 
-		result.add(new int[] { 0, 0, 3, 1, 1 });
-		result.add(new int[] { 0, 0, 1, 3, 1 });
-		result.add(new int[] { 0, 0, 1, 1, 3 });
+//		result.add(new int[] { 0, 0, 3, 1, 1 });
+//		result.add(new int[] { 0, 0, 1, 3, 1 });
+//		result.add(new int[] { 0, 0, 1, 1, 3 });
 
-		result.add(new int[] { 3, 1, 1, 0, 0 });
-		result.add(new int[] { 1, 3, 1, 0, 0 });
-		result.add(new int[] { 1, 1, 3, 0, 0 });
+//		result.add(new int[] { 3, 1, 1, 0, 0 });
+//		result.add(new int[] { 1, 3, 1, 0, 0 });
+//		result.add(new int[] { 1, 1, 3, 0, 0 });
 		return result;
 	}
 
@@ -28,19 +28,17 @@ public class TwoInARowMaker {
 	 */
 	public List<int[]> makeLooseRow() {
 		List<int[]> result = new LinkedList<int[]>();
-		result.add(new int[] { 0, 3, 0, 1, 1 });
-		result.add(new int[] { 0, 1, 0, 3, 1 });
 		result.add(new int[] { 0, 1, 0, 1, 3 });
-
-		result.add(new int[] { 0, 3, 1, 0, 1 });
-		result.add(new int[] { 0, 1, 3, 0, 1 });
 		result.add(new int[] { 0, 1, 1, 0, 3 });
-
 		result.add(new int[] { 3, 0, 1, 1, 0 });
-		result.add(new int[] { 1, 0, 3, 1, 0 });
-		result.add(new int[] { 1, 0, 1, 3, 0 });
-
 		result.add(new int[] { 3, 1, 0, 1, 0 });
+		
+		result.add(new int[] { 0, 3, 0, 1, 1 });
+		result.add(new int[] { 0, 1, 0, 3, 1 });		
+		result.add(new int[] { 0, 3, 1, 0, 1 });
+		result.add(new int[] { 0, 1, 3, 0, 1 });			
+		result.add(new int[] { 1, 0, 3, 1, 0 });
+		result.add(new int[] { 1, 0, 1, 3, 0 });	
 		result.add(new int[] { 1, 3, 0, 1, 0 });
 		result.add(new int[] { 1, 1, 0, 3, 0 });
 		return result;

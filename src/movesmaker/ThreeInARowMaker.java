@@ -10,15 +10,14 @@ public class ThreeInARowMaker {
 	 */
 	public List<int[]> makeTightRow() {
 		List<int[]> result = new LinkedList<int[]>();
-		result.add(new int[] { 0, 3, 1, 1, 1 });
-		result.add(new int[] { 0, 1, 3, 1, 1 });
-		result.add(new int[] { 0, 1, 1, 3, 1 });
 		result.add(new int[] { 0, 1, 1, 1, 3 });
-
-		result.add(new int[] { 3, 1, 1, 1, 0 });
-		result.add(new int[] { 1, 3, 1, 1, 0 });
+		result.add(new int[] { 3, 1, 1, 1, 0 });	
+		result.add(new int[] { 0, 1, 3, 1, 1 });
 		result.add(new int[] { 1, 1, 3, 1, 0 });
+		result.add(new int[] { 0, 1, 1, 3, 1 });		
+		result.add(new int[] { 1, 3, 1, 1, 0 });		
 		result.add(new int[] { 1, 1, 1, 3, 0 });
+		result.add(new int[] { 0, 3, 1, 1, 1 });
 		return result;
 	}
 

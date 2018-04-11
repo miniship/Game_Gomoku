@@ -7,7 +7,6 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.LinkedList;
 import java.util.List;
 
 public class FileProcessor {
@@ -17,19 +16,22 @@ public class FileProcessor {
 		this.fileName = fileName;
 	}
 
-	public List<int[][]> readMoves() {
-		List<int[][]> moves = new LinkedList<int[][]>();
+	public List<int[][]> readMoves(List<int[][]> moves, List<int[][]> movesToShuffle) {
 		try {
 			BufferedReader reader = new BufferedReader(new FileReader(new File(fileName)));
 			String line;
 			while ((line = reader.readLine()) != null) {
-				if (!line.matches("[0-9]{1,2}.[0-9]+")) {
+				if (!line.matches("[0-9@]{1,3}.[0-9]+")) {
 					continue;
 				}
 
 				int[][] move = readMove(reader);
 				if (move != null) {
-					moves.add(move);
+					if (line.matches("^9.*|^10.*")) {
+						movesToShuffle.add(move);
+					} else {
+						moves.add(move);
+					}
 				}
 			}
 			reader.close();
@@ -66,14 +68,11 @@ public class FileProcessor {
 
 		File file = new File(fileName);
 		try {
-			if (!file.exists()) {
-				file.createNewFile();
-			}
-
-			BufferedWriter writer = new BufferedWriter(new FileWriter(file, true));
+			file.createNewFile();
+			BufferedWriter writer = new BufferedWriter(new FileWriter(file));
 			for (int i = 0; i < moves.size(); i++) {
 				String statusLine = statusLines.get(i);
-				if (statusLine == null || !statusLine.matches("[0-9]{1,2}.[0-9]+")) {
+				if (statusLine == null || !statusLine.matches("[0-9@]{1,3}.[0-9]+")) {
 					continue;
 				}
 

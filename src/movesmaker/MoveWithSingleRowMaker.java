@@ -12,7 +12,7 @@ public class MoveWithSingleRowMaker {
 		List<int[][]> moves = new LinkedList<int[][]>();
 		for (int[] row : rows) {
 			for (int i = 0; i < 6; i++) {
-				int[][] move = new MoveMakerHelper().prepareMove();
+				int[][] move = MoveMakerHelper.prepareMove();
 				for (int j = 0; j < 5; j++) {
 					switch (i) {
 					// backward cross

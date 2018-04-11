@@ -1,5 +1,5 @@
 Game Gomoku(Five in a row)
-- version: 1.0
+- version: 1.1
 - run in local machine
 
 I. Introdution
@@ -62,4 +62,9 @@ Example
 	1 3 1 0 1
 	1 4 4 4 4
 
-- MoveMaker: make moves from level one to level six, moves with lower level are better moves
+- MoveMaker: make moves from level 1 to level 5, moves with lower level are better moves
+
+III. Changes
+- Add moves by combining attack moves with defend moves
+- Remove some weak moves
+- Shuffle some simple moves to make the computer play more naturally
