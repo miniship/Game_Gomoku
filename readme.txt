@@ -20,6 +20,7 @@ Example
 
 Step 2: When it is the computer's turn, it compares each move in the list with every location on the board to find a match and play accordingly.
 
+
 II. Make the move list
 - Make a row with computer's previous moves, empty cells and place to play next.
 - Rotate that row in a 5 x 5 matrix to make more moves.
@@ -64,7 +65,25 @@ Example
 
 - MoveMaker: make moves from level 1 to level 5, moves with lower level are better moves
 
-III. Changes
+
+III. Create and run jar file
+- create build folder
+mkdir build\resources
+- copy properties file
+copy src\resources\gomoku.properties build\resources
+- compile java files
+javac -sourcepath src -classpath build:src -d build src\gomoku\movesmaker\MoveMaker.java src\gomoku\Main.java
+- generate moves
+cd build
+java gomoku.movesmaker.MoveMaker
+- create jar file
+jar cvfe gomoku.jar gomoku.Main .
+- run jar file
+java -jar gomoku.jar
+
+
+IV. Changes
+v1.1:
 - Add moves by combining attack moves with defend moves
 - Remove some weak moves
 - Shuffle some simple moves to make the computer play more naturally
